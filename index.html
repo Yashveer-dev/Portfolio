@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yashveer Shukla | Full Stack & AI Engineer</title>
+    <meta name="description" content="Utilitarian portfolio of Yashveer Shukla - Full Stack Developer, AI & Automation Engineer.">
+    <meta name="keywords" content="Yashveer Shukla, Portfolio, Full Stack, ML, AI, Software Engineer, VIT-AP">
+    <meta name="author" content="Yashveer Shukla">
+    <meta property="og:title" content="Yashveer Shukla - Portfolio">
+    <meta property="og:description" content="Full Stack Developer & AI Engineer Portfolio">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        steel: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-black dark:bg-[#09090b] dark:text-zinc-100 font-sans min-h-screen selection:bg-steel-600 selection:text-white transition-colors duration-200 overflow-hidden">
+    <div id="loader-screen" class="fixed inset-0 z-[100] bg-[#09090b] text-zinc-100 flex flex-col items-center justify-center p-4 font-mono select-none transition-opacity duration-700">
+        <div class="flex flex-col items-center max-w-md w-full space-y-8">
+            <div id="logo-holder" class="w-48 h-16 flex items-center justify-center">
+                <svg id="intro-logo" viewBox="0 0 120 40" class="w-48 h-16 fill-none stroke-current stroke-[3.5] text-white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 5 L20 20 L30 5 M20 20 L20 35" stroke-linecap="square" />
+                    <path d="M45 5 L55 35 L65 5" stroke-linecap="square" />
+                    <path d="M100 5 L85 5 L85 20 L100 20 L100 35 L85 35" stroke-linecap="square" />
+                </svg>
+            </div>
+            <div class="w-full border-2 border-zinc-800 p-4 bg-black/50 text-[10px] sm:text-xs leading-relaxed space-y-1 h-36 overflow-hidden flex flex-col justify-end">
+                <div id="log-console" class="space-y-1"></div>
+            </div>
+        </div>
+    </div>
+    <div id="app-content" class="opacity-0 pointer-events-none transition-opacity duration-700">
+        <nav class="sticky top-0 z-50 bg-white/95 dark:bg-[#09090b]/95 border-b-2 border-black dark:border-zinc-800 backdrop-blur-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-4">
+                        <div id="nav-logo-target" class="w-16 h-6 flex items-center"></div>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8 font-mono text-sm">
+                        <a href="#home" class="hover:text-steel-600 dark:hover:text-steel-400">[IDENTITY]</a>
+                        <a href="#arsenal" class="hover:text-steel-600 dark:hover:text-steel-400">[ARSENAL]</a>
+                        <a href="#projects" class="hover:text-steel-600 dark:hover:text-steel-400">[SYSTEMS]</a>
+                        <a href="#experience" class="hover:text-steel-600 dark:hover:text-steel-400">[HISTORY]</a>
+                        <a href="#instagram" class="hover:text-steel-600 dark:hover:text-steel-400">[FEED]</a>
+                        <a href="#contact" class="hover:text-steel-600 dark:hover:text-steel-400">[CONNECT]</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button id="theme-btn" class="border-2 border-black dark:border-zinc-700 px-3 py-1 font-mono text-xs hover:bg-zinc-100 dark:hover:bg-zinc-900 active:translate-y-[1px]">
+                            SYS.THEME_TOGGLE()
+                        </button>
+                        <div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-green-500/10 border border-green-500/30 text-green-600 dark:text-green-400 font-mono text-xs">
+                            <span class="w-2 h-2 rounded-none bg-green-500 animate-pulse"></span>
+                            ONLINE_
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+            <section id="home" class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+                <div class="lg:col-span-8 flex flex-col justify-between border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)]">
+                    <div class="space-y-6">
+                        <div class="inline-block px-3 py-1 bg-steel-100 dark:bg-steel-900 text-steel-700 dark:text-steel-300 border border-steel-200 dark:border-steel-800 font-mono text-xs uppercase tracking-wider">
+                            System Principal Node
+                        </div>
+                        <div class="space-y-2">
+                            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-black dark:text-white uppercase">
+                                Yashveer Shukla
+                            </h1>
+                            <p class="font-mono text-lg sm:text-xl text-steel-600 dark:text-steel-400">
+                                Full Stack Developer | AI & Automation Engineer
+                            </p>
+                        </div>
+                        <p class="text-base sm:text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed max-w-2xl">
+                            Full-stack developer and AI engineer with hands-on experience building end-to-end ML pipelines, cloud-deployed applications, and automation systems using AWS, Python, and React. Passionate about applying AI and automation to solve high-impact problems, with a focus on building reliable, production-ready infrastructure.
+                        </p>
+                        <div class="flex flex-wrap gap-4 font-mono text-sm">
+                            <a href="mailto:yashveer.shukla.2006@gmail.com" class="border-2 border-black dark:border-zinc-700 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                EMAIL_DIRECT
+                            </a>
+                            <a href="https://github.com/Yashveer-dev" target="_blank" rel="noopener noreferrer" class="border-2 border-black dark:border-zinc-700 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                GITHUB_SRC
+                            </a>
+                            <a href="https://www.linkedin.com/in/yashveer-dev" target="_blank" rel="noopener noreferrer" class="border-2 border-black dark:border-zinc-700 px-4 py-2 hover:bg-zinc-100 dark:hover:bg-zinc-900 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                LINKEDIN_NET
+                            </a>
+                            <a href="Yashveer_Shukla_Resume (1).pdf" target="_blank" class="border-2 border-steel-600 dark:border-steel-400 bg-steel-600 dark:bg-steel-700 text-white px-4 py-2 hover:bg-steel-700 dark:hover:bg-steel-600 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                GET_RESUME.pdf
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 flex flex-col justify-between border-2 border-black dark:border-zinc-800 p-6 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)]">
+                    <div class="space-y-6">
+                        <div class="border-2 border-black dark:border-zinc-800 bg-white dark:bg-[#09090b] p-2 aspect-square flex items-center justify-center">
+                            <img src="image.png" alt="Yashveer Shukla" class="w-full h-full object-cover filter grayscale contrast-125 select-none pointer-events-none">
+                        </div>
+                        <div class="space-y-2 font-mono text-xs">
+                            <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+                                <span class="text-zinc-500">LOC:</span>
+                                <span>Deoria, U.P., India</span>
+                            </div>
+                            <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+                                <span class="text-zinc-500">PING:</span>
+                                <span id="latency">45ms</span>
+                            </div>
+                            <div class="flex justify-between border-b border-zinc-200 dark:border-zinc-800 pb-1">
+                                <span class="text-zinc-500">BUILD_HASH:</span>
+                                <span>SHA256: 7f8c92a...</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-zinc-500">ENV:</span>
+                                <span class="text-green-600 dark:text-green-400">PRODUCTION</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="arsenal" class="border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                <h2 class="text-2xl font-bold uppercase tracking-wider font-mono border-b-2 border-black dark:border-zinc-800 pb-2">
+                    [TECHNICAL ARSENAL]
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-sm">
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">01. LANGUAGES</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C / C++</li>
+                            <li>SQL</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">02. MACHINE LEARNING & AI</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>CNN Image Classification</li>
+                            <li>Supervised Learning</li>
+                            <li>TensorFlow / Keras</li>
+                            <li>Scikit-learn</li>
+                            <li>Model Evaluation Metrics</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">03. WEB TECHNOLOGIES</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>React.js</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>HTML5 & CSS3</li>
+                            <li>Bootstrap</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">04. PIPELINES & AUTOMATION</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>Python Orchestration</li>
+                            <li>Process Automation</li>
+                            <li>API Integration</li>
+                            <li>Error-Handling Architecture</li>
+                            <li>Resilience Design</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">05. CLOUD & DEVOPS</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>AWS (EC2, S3, Lambda)</li>
+                            <li>Git & GitHub</li>
+                            <li>Deployment & Hosting</li>
+                        </ul>
+                    </div>
+                    <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                        <div class="text-steel-600 dark:text-steel-400 font-bold mb-3 border-b border-zinc-200 dark:border-zinc-800 pb-1">06. DATA & TOOLS</div>
+                        <ul class="space-y-1 text-zinc-700 dark:text-zinc-300">
+                            <li>NumPy</li>
+                            <li>Pandas</li>
+                            <li>Jupyter Notebooks</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                <h2 class="text-2xl font-bold uppercase tracking-wider font-mono border-b-2 border-black dark:border-zinc-800 pb-2">
+                    [INTERACTIVE SYSTEMS EXPLORER]
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-5 space-y-4">
+                        <button id="btn-video" class="project-tab border-2 border-black dark:border-zinc-700 w-full text-left p-4 bg-white dark:bg-[#09090b] font-mono hover:bg-zinc-50 dark:hover:bg-zinc-900 border-l-8 border-l-steel-600 dark:border-l-steel-400 transition-all">
+                            <div class="text-xs text-zinc-500 font-bold">SYSTEM_01</div>
+                            <div class="text-lg font-bold text-black dark:text-white">Video Automation Pipeline</div>
+                            <div class="text-xs mt-1 text-steel-600 dark:text-steel-400">Local Python Orchestrator | MoviePy</div>
+                        </button>
+                        <button id="btn-krishi" class="project-tab border-2 border-black dark:border-zinc-700 w-full text-left p-4 bg-white dark:bg-[#09090b] font-mono hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all">
+                            <div class="text-xs text-zinc-500 font-bold">SYSTEM_02</div>
+                            <div class="text-lg font-bold text-black dark:text-white">KrishiMitra AI</div>
+                            <div class="text-xs mt-1 text-steel-600 dark:text-steel-400">AWS (EC2, S3, Lambda) | SIH 2025</div>
+                        </button>
+                        <button id="btn-qkd" class="project-tab border-2 border-black dark:border-zinc-700 w-full text-left p-4 bg-white dark:bg-[#09090b] font-mono hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all">
+                            <div class="text-xs text-zinc-500 font-bold">SYSTEM_03</div>
+                            <div class="text-lg font-bold text-black dark:text-white">QKD Web Application</div>
+                            <div class="text-xs mt-1 text-steel-600 dark:text-steel-400">Cryptographic App | AQVH 2025</div>
+                        </button>
+                        <button id="btn-ngo" class="project-tab border-2 border-black dark:border-zinc-700 w-full text-left p-4 bg-white dark:bg-[#09090b] font-mono hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-all">
+                            <div class="text-xs text-zinc-500 font-bold">SYSTEM_04</div>
+                            <div class="text-lg font-bold text-black dark:text-white">Naya Savera NGO Web</div>
+                            <div class="text-xs mt-1 text-steel-600 dark:text-steel-400">SEO Optimized Site | Deployment</div>
+                        </button>
+                    </div>
+                    <div class="lg:col-span-7 border-2 border-black dark:border-zinc-800 p-6 bg-white dark:bg-[#09090b] flex flex-col justify-between shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)]">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-2">
+                                <span id="proj-id" class="font-mono text-xs bg-steel-100 dark:bg-steel-900 text-steel-700 dark:text-steel-300 border border-steel-200 dark:border-steel-800 px-2 py-0.5">SYSTEM_01</span>
+                                <span class="font-mono text-xs text-zinc-400">DATA_FLOW_MAP</span>
+                            </div>
+                            <div id="diagram-container" class="border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-[#0c0c0e] p-4 font-mono text-xs overflow-x-auto">
+                            </div>
+                            <div class="space-y-4">
+                                <h3 id="proj-title" class="text-xl font-bold uppercase tracking-tight text-black dark:text-white">Batch-Processing Video Automation Pipeline</h3>
+                                <ul id="proj-details" class="list-disc list-inside space-y-2 text-zinc-700 dark:text-zinc-300 text-sm">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <section id="experience" class="lg:col-span-6 border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                    <h2 class="text-2xl font-bold uppercase tracking-wider font-mono border-b-2 border-black dark:border-zinc-800 pb-2">
+                        [HISTORY & EDUCATION]
+                    </h2>
+                    <div class="space-y-8">
+                        <div class="space-y-2">
+                            <div class="inline-block px-2 py-0.5 bg-steel-100 dark:bg-steel-900 text-steel-700 dark:text-steel-300 border border-steel-200 dark:border-steel-800 font-mono text-xs">
+                                ML Mentorship Trainee | LaunchED Global x VIT-AP
+                            </div>
+                            <div class="text-sm font-mono text-zinc-500">Mar 2025 – Apr 2025</div>
+                            <ul class="list-disc list-inside text-sm text-zinc-700 dark:text-zinc-300 space-y-1">
+                                <li>Engineered a CNN-based image classification model during an intensive ML mentorship program, applying a full supervised learning workflow from data preprocessing through model evaluation.</li>
+                                <li>Evaluated model performance using confusion matrix analysis and accuracy metrics to identify key areas for tuning and improvement.</li>
+                            </ul>
+                        </div>
+                        <div class="border-t border-zinc-200 dark:border-zinc-800 pt-6 space-y-4">
+                            <div class="space-y-2">
+                                <div class="text-base font-bold uppercase text-black dark:text-white">VIT-AP University, Andhra Pradesh, India</div>
+                                <div class="text-sm font-mono text-zinc-500">B.Tech in Computer Science and Engineering | Sept 2024 – Jun 2028</div>
+                                <div class="text-sm font-mono text-steel-600 dark:text-steel-400">CGPA: 8.27 / 10</div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-xs font-mono border-t border-zinc-100 dark:border-zinc-900 pt-4">
+                                <div>
+                                    <span class="text-zinc-500 block">CIS, Sikar, Rajasthan</span>
+                                    <span class="font-bold">12th Grade (2024)</span>
+                                </div>
+                                <div>
+                                    <span class="text-zinc-500 block">JMSS, Deoria, U.P.</span>
+                                    <span class="font-bold">10th Grade (2022)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="credentials" class="lg:col-span-6 border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                    <h2 class="text-2xl font-bold uppercase tracking-wider font-mono border-b-2 border-black dark:border-zinc-800 pb-2">
+                        [CREDENTIALS & ACHV]
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                            <div class="font-mono text-xs text-steel-600 dark:text-steel-400 mb-1">HACKERRANK</div>
+                            <div class="text-sm font-bold uppercase">5 Star Rated Java Developer</div>
+                            <div class="text-xs text-zinc-500 font-mono mt-1">HACKERRANK_SCORE: TOP_TIER</div>
+                        </div>
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                            <div class="font-mono text-xs text-steel-600 dark:text-steel-400 mb-1">LEADERSHIP</div>
+                            <div class="text-sm font-bold uppercase">Club Secretary</div>
+                            <div class="text-xs text-zinc-500 font-mono mt-1">VIT-AP UNIVERSITY CLUBS</div>
+                        </div>
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b] font-mono text-xs space-y-2">
+                            <div class="text-zinc-500 border-b border-zinc-100 dark:border-zinc-900 pb-1 font-bold uppercase">System Verified Certifications</div>
+                            <div class="flex justify-between">
+                                <span>AI Fluency: Frameworks and Foundations</span>
+                                <span class="text-steel-600 dark:text-steel-400">Anthropic</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Generative AI Essentials</span>
+                                <span class="text-steel-600 dark:text-steel-400">IBM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Java Programming</span>
+                                <span class="text-steel-600 dark:text-steel-400">Intellipaat</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Responsive Web Design</span>
+                                <span class="text-steel-600 dark:text-steel-400">freeCodeCamp</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Machine Learning Mentorship</span>
+                                <span class="text-steel-600 dark:text-steel-400">LaunchED Global</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <section id="instagram" class="border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b-2 border-black dark:border-zinc-800 pb-2 gap-2">
+                    <h2 class="text-2xl font-bold uppercase tracking-wider font-mono">
+                        [EXTERNAL_FEED.INSTAGRAM]
+                    </h2>
+                    <a href="https://instagram.com/yashveerrshuklaa" target="_blank" rel="noopener noreferrer" class="font-mono text-sm border-2 border-black dark:border-zinc-700 px-3 py-1 bg-white dark:bg-[#09090b] hover:bg-zinc-100 dark:hover:bg-zinc-900 active:translate-y-[1px] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)]">
+                        @YASHVEERRSHUKLAA
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <a href="https://instagram.com/yashveerrshuklaa" target="_blank" rel="noopener noreferrer" class="group border-2 border-black dark:border-zinc-800 p-2 bg-white dark:bg-[#09090b] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] transition-all">
+                        <img src="ig_terminal.png" alt="Terminal code environment" class="w-full aspect-square object-cover filter grayscale group-hover:grayscale-0 transition-all">
+                        <div class="font-mono text-xs text-zinc-500 mt-2 flex justify-between">
+                            <span>SYS.CODE_ENV</span>
+                            <span>[VIEW_ON_IG]</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/yashveerrshuklaa" target="_blank" rel="noopener noreferrer" class="group border-2 border-black dark:border-zinc-800 p-2 bg-white dark:bg-[#09090b] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] transition-all">
+                        <img src="ig_setup.png" alt="Developer desk setup layout" class="w-full aspect-square object-cover filter grayscale group-hover:grayscale-0 transition-all">
+                        <div class="font-mono text-xs text-zinc-500 mt-2 flex justify-between">
+                            <span>WORKSPACE.SYS_LOG</span>
+                            <span>[VIEW_ON_IG]</span>
+                        </div>
+                    </a>
+                    <a href="https://instagram.com/yashveerrshuklaa" target="_blank" rel="noopener noreferrer" class="group border-2 border-black dark:border-zinc-800 p-2 bg-white dark:bg-[#09090b] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] transition-all">
+                        <img src="ig_server.png" alt="Architecture schema layout" class="w-full aspect-square object-cover filter grayscale group-hover:grayscale-0 transition-all">
+                        <div class="font-mono text-xs text-zinc-500 mt-2 flex justify-between">
+                            <span>ARCH.INFRA_MAP</span>
+                            <span>[VIEW_ON_IG]</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <section id="contact" class="border-2 border-black dark:border-zinc-800 p-8 bg-zinc-50 dark:bg-[#0c0c0e] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(39,39,42,1)] space-y-6">
+                <h2 class="text-2xl font-bold uppercase tracking-wider font-mono border-b-2 border-black dark:border-zinc-800 pb-2">
+                    [SYS.COMMUNICATION_LINK]
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-5 font-mono text-sm space-y-4">
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                            <div class="text-zinc-500 text-xs">DIRECT_SMTP:</div>
+                            <a href="mailto:yashveer.shukla.2006@gmail.com" class="font-bold hover:underline">yashveer.shukla.2006@gmail.com</a>
+                        </div>
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                            <div class="text-zinc-500 text-xs">TEL_ENDPOINT:</div>
+                            <span class="font-bold">+91-7398201362</span>
+                        </div>
+                        <div class="border-2 border-black dark:border-zinc-800 p-4 bg-white dark:bg-[#09090b]">
+                            <div class="text-zinc-500 text-xs">LOCATION:</div>
+                            <span class="font-bold">Deoria, U.P, India</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 border-2 border-black dark:border-zinc-800 p-6 bg-white dark:bg-[#09090b]">
+                        <form id="sys-contact" class="space-y-4 font-mono text-sm">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label for="name" class="text-xs text-zinc-500 uppercase">Sender Name</label>
+                                    <input type="text" id="name" name="name" required class="w-full bg-zinc-50 dark:bg-[#0c0c0e] border-2 border-black dark:border-zinc-800 p-2 outline-none focus:border-steel-600 dark:focus:border-steel-400">
+                                </div>
+                                <div class="space-y-1">
+                                    <label for="email" class="text-xs text-zinc-500 uppercase">Sender Email</label>
+                                    <input type="email" id="email" name="email" required class="w-full bg-zinc-50 dark:bg-[#0c0c0e] border-2 border-black dark:border-zinc-800 p-2 outline-none focus:border-steel-600 dark:focus:border-steel-400">
+                                </div>
+                            </div>
+                            <div class="space-y-1">
+                                <label for="subject" class="text-xs text-zinc-500 uppercase">Payload Subject</label>
+                                <input type="text" id="subject" name="subject" required class="w-full bg-zinc-50 dark:bg-[#0c0c0e] border-2 border-black dark:border-zinc-800 p-2 outline-none focus:border-steel-600 dark:focus:border-steel-400">
+                            </div>
+                            <div class="space-y-1">
+                                <label for="message" class="text-xs text-zinc-500 uppercase">Data Payload (Message)</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full bg-zinc-50 dark:bg-[#0c0c0e] border-2 border-black dark:border-zinc-800 p-2 outline-none focus:border-steel-600 dark:focus:border-steel-400"></textarea>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span id="form-status" class="text-xs"></span>
+                                <button type="submit" class="border-2 border-black dark:border-zinc-700 bg-black text-white dark:bg-white dark:text-black px-6 py-2 hover:bg-zinc-900 dark:hover:bg-zinc-100 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(39,39,42,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                                    SEND_PAYLOAD()
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="border-t-2 border-black dark:border-zinc-800 mt-16 bg-zinc-50 dark:bg-[#0c0c0e]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between font-mono text-xs text-zinc-500 space-y-4 sm:space-y-0">
+                <span>&copy; 2026 YASHVEER SHUKLA. NO COMMENTS_</span>
+                <div class="flex gap-4">
+                    <span>LOC_TIME: 15:40 UTC+5:30</span>
+                    <span>STATUS: SYSTEM_NORMAL</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
